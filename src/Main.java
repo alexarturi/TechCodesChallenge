@@ -32,15 +32,24 @@ public class Main {
 
         int n = 0;
         int count = 0;
-        while (count!=5){
-            for (int i = 0; i<original.length(); i++){
-                if (original.charAt(i)=='5'){
-                    n+=i;
-                    count++;
-                }
+        int finalSum = 0;
+        for (int i = 0; i<original.length(); i++){
+            if (original.charAt(i)=='5'){
+                n+=i;
+                count++;
+            }
+            if (count==5){
+                finalSum = n;
             }
         }
-        System.out.println(n);
+
+        int maxPrime = 2;
+        for (int i = 3; i<=finalSum; i++){
+            if (prime.isPrime(i) && finalSum%i==0){
+                maxPrime = i;
+            }
+        }
+        System.out.println(maxPrime);
 
     }
 }
